@@ -20,7 +20,7 @@ namespace ScheduleQuikWebServer.Controllers
     {
       // query my database
       var db = new ScheduleQuikDbContext();
-      var results = db.Employee.OrderBy(employee => employee.FirstName);
+      var results = db.Employees.OrderBy(employee => employee.FirstName);
       // return the results
       return results.ToList();
 
