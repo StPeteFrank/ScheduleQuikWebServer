@@ -51,5 +51,32 @@ namespace ScheduleQuikWebServer.Controllers
         return new { message = "Employee not found" };
       }
     }
+
+    [HttpPut("{id}")]
+    public ActionResult UpdateEmployees([FromRoute]int id, [FromBody]EmployeesTable newInformation)
+    {
+      var db = new ScheduleQuikDbContext();
+      // find the employee
+      var employees = db.Employees.FirstOrDefault(f => f.Id == id);
+      if (employees != null)
+      {
+        //update the information
+        employees.FirstName = newInformation.FirstName;
+        employees.LastName = newInformation.LastName;
+        employees.PhoneNumber = newInformation.PhoneNumber;
+        employees.EmailAddress = newInformation.EmailAddress;
+
+        //save changes
+        db.SaveChanges();
+      }
+      else
+      {
+        //do something n not found
+        return NotFound();
+      }
+      return Ok(employees);
+      //Havent been able to get this to work
+      //Also would like to add a search controller
+    }
   }
 }
