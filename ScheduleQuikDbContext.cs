@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using ScheduleQuikWebServer.Models;
 
 namespace ScheduleQuikWebServer
 {
@@ -27,5 +28,8 @@ namespace ScheduleQuikWebServer
     {
       modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
     }
+
+    public DbSet<EmployeesTable> Employees { get; set; }
+
   }
 }
