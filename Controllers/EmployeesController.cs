@@ -33,5 +33,23 @@ namespace ScheduleQuikWebServer.Controllers
       db.SaveChanges();
       return incomingEmployees;
     }
+    // DELETE /api/employees/3
+    // localhost:5000/api/employees/{id}
+    [HttpDelete("{id}")]
+    public ActionResult<Object> DeleteEmployees([FromRoute]int id)
+    {
+      var db = new ScheduleQuikDbContext();
+      var employeesToDelete = db.Employees.FirstOrDefault(employees => employees.Id == id);
+      if (employeesToDelete != null)
+      {
+        db.Employees.Remove(employeesToDelete);
+        db.SaveChanges();
+        return employeesToDelete;
+      }
+      else
+      {
+        return new { message = "Employee not found" };
+      }
+    }
   }
 }
