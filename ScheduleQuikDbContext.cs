@@ -33,5 +33,7 @@ namespace ScheduleQuikWebServer
 
     public DbSet<PositionsTable> Positions { get; set; }
 
+    public DbSet<ShiftsTable> Shifts { get; set; }
+
   }
 }

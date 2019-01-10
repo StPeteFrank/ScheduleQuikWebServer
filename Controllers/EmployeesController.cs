@@ -15,7 +15,6 @@ namespace ScheduleQuikWebServer.Controllers
     //GET that returns all employees
     //GET /api/employees
     [HttpGet]
-
     public ActionResult<IEnumerable<EmployeesTable>> GetAction()
     {
       // query my database
@@ -40,6 +39,23 @@ namespace ScheduleQuikWebServer.Controllers
     {
       var db = new ScheduleQuikDbContext();
       var employeesToDelete = db.Employees.FirstOrDefault(employees => employees.Id == id);
+      if (employeesToDelete != null)
+      {
+        db.Employees.Remove(employeesToDelete);
+        db.SaveChanges();
+        return employeesToDelete;
+      }
+      else
+      {
+        return new { message = "Employee not found" };
+      }
+    }
+
+    [HttpDelete("firstName/{firstName}")]
+    public ActionResult<Object> DeleteEmployees([FromRoute]string firstname)
+    {
+      var db = new ScheduleQuikDbContext();
+      var employeesToDelete = db.Employees.FirstOrDefault(employees => employees.FirstName == firstname);
       if (employeesToDelete != null)
       {
         db.Employees.Remove(employeesToDelete);
