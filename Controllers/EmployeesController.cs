@@ -9,12 +9,10 @@ using ScheduleQuikWebServer.ViewModels;
 namespace ScheduleQuikWebServer.Controllers
 {
   [Route("api/[controller]")]
-  // localhost:5001/api/values
+
   [ApiController]
   public class EmployeesController : ControllerBase
   {
-    //GET that returns all employees
-    //GET /api/employees
     [HttpGet]
     public ActionResult<IEnumerable<EmployeesTable>> GetAction()
     {
@@ -23,7 +21,6 @@ namespace ScheduleQuikWebServer.Controllers
       var employee = db.Employees.OrderBy(employees => employees.FirstName);
       // return the results
       return employee.ToList();
-      //should I update this to OrderBy(employees => employees.FirstName || employees.LastName);  ?
     }
     [HttpPost]
     public ActionResult<EmployeesTable> AddEmployees([FromBody] EmployeesTable incomingEmployees)
