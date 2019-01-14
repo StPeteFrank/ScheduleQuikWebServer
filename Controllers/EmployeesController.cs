@@ -67,22 +67,22 @@ namespace ScheduleQuikWebServer.Controllers
     }
 
 
-    // [HttpDelete("list")]
-    // public ActionResult DeleteGroupOfEmployees([FromBody]DeleteEmployeesViewModel vm)
-    // {
-    //   var db = new ScheduleQuikDbContext();
-    //   var employeeIDsSelectedForDelete = db.Employees.Where(employee => vm.EmployeeIds.Contains(employee.Id));
-    //   if (employeeIDsSelectedForDelete != null)
-    //   {
-    //     db.Employees.RemoveRange(employeeIDsSelectedForDelete);
-    //     db.SaveChanges();
-    //     return employeeIDsSelectedForDelete;
-    //   }
-    //   else
-    //   {
-    //     return Ok(vm);
-    //   }
-    // }
+    [HttpDelete("list")]
+    public ActionResult DeleteGroupOfEmployees([FromBody]DeleteEmployeesViewModel vm)
+    {
+      var db = new ScheduleQuikDbContext();
+      var employeeIDsSelectedForDelete = db.Employees.Where(employee => vm.EmployeeIds.Contains(employee.Id));
+      if (employeeIDsSelectedForDelete != null)
+      {
+        db.Employees.RemoveRange(employeeIDsSelectedForDelete);
+        db.SaveChanges();
+        return Ok();
+      }
+      else
+      {
+        return Ok(vm);
+      }
+    }
     //////////////////////////////////////////////////////////
 
     [HttpPut("{id}")]
