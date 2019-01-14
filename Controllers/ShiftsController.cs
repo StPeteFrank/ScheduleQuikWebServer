@@ -18,10 +18,11 @@ namespace ScheduleQuikWebServer.Controllers
     {
       // query my database
       var db = new ScheduleQuikDbContext();
-      var shift = db.Shifts.OrderBy(shifts => shifts.InTime);
+      var shift = db.Shifts.OrderBy(shifts => shifts.Id);
       // return the results
       return shift.ToList();
     }
+
     [HttpPost]
     public ActionResult<ShiftsTable> AddShifts([FromBody] ShiftsTable incomingShifts)
     {
