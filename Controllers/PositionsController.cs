@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ScheduleQuikWebServer.Models;
+using ScheduleQuikWebServer.ViewModels;
 
 namespace ScheduleQuikWebServer.Controllers
 {
@@ -47,22 +48,22 @@ namespace ScheduleQuikWebServer.Controllers
       }
     }
 
-    // [HttpDelete("list")]
-    //     public ActionResult DeleteGroupOfEmployees([FromBody]DeleteEmployeesViewModel vm)
-    //     {
-    //       var db = new ScheduleQuikDbContext();
-    //       var employeeIDsSelectedForDelete = db.Employees.Where(employee => vm.EmployeeIds.Contains(employee.Id));
-    //       if (employeeIDsSelectedForDelete != null)
-    //       {
-    //         db.Employees.RemoveRange(employeeIDsSelectedForDelete);
-    //         db.SaveChanges();
-    //         return Ok();
-    //       }
-    //       else
-    //       {
-    //         return Ok(vm);
-    //       }
-    //     }
+    [HttpDelete("list")]
+    public ActionResult DeleteGroupOfPositions([FromBody]DeletePositionsViewModel vm)
+    {
+      var db = new ScheduleQuikDbContext();
+      var positionIDsSelectedForDelete = db.Positions.Where(position => vm.PositionIds.Contains(position.Id));
+      if (positionIDsSelectedForDelete != null)
+      {
+        db.Positions.RemoveRange(positionIDsSelectedForDelete);
+        db.SaveChanges();
+        return Ok();
+      }
+      else
+      {
+        return Ok(vm);
+      }
+    }
 
 
 
