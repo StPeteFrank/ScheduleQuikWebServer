@@ -18,7 +18,7 @@ namespace ScheduleQuikWebServer.Controllers
     {
       // query my database
       var db = new ScheduleQuikDbContext();
-      var shift = db.Shifts.OrderBy(shifts => shifts.Id);
+      var shift = db.Shifts;
       // return the results
       return shift.ToList();
     }

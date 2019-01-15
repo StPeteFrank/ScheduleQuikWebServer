@@ -10,8 +10,8 @@ using ScheduleQuikWebServer;
 namespace ScheduleQuikWebServer.Migrations
 {
     [DbContext(typeof(ScheduleQuikDbContext))]
-    [Migration("20190110000016_AddedNewTables")]
-    partial class AddedNewTables
+    [Migration("20190115164555_ShiftsTabel")]
+    partial class ShiftsTabel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,9 +58,9 @@ namespace ScheduleQuikWebServer.Migrations
 
                     b.Property<int>("EmployeesTableId");
 
-                    b.Property<DateTime>("InTime");
+                    b.Property<DateTime?>("InTime");
 
-                    b.Property<DateTime>("OutTime");
+                    b.Property<DateTime?>("OutTime");
 
                     b.Property<int>("PositionsTableId");
 

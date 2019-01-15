@@ -9,8 +9,8 @@ using ScheduleQuikWebServer;
 namespace ScheduleQuikWebServer.Migrations
 {
     [DbContext(typeof(ScheduleQuikDbContext))]
-    [Migration("20190108003839_AddedPositionsController")]
-    partial class AddedPositionsController
+    [Migration("20190115164438_Basline")]
+    partial class Basline
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

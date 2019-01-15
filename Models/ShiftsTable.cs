@@ -8,9 +8,9 @@ namespace ScheduleQuikWebServer.Models
   {
     public int Id { get; set; }
 
-    public DateTime InTime { get; set; }
+    public DateTime? InTime { get; set; }
 
-    public DateTime OutTime { get; set; }
+    public DateTime? OutTime { get; set; }
 
     public int EmployeesTableId { get; set; }
 

@@ -56,9 +56,9 @@ namespace ScheduleQuikWebServer.Migrations
 
                     b.Property<int>("EmployeesTableId");
 
-                    b.Property<DateTime>("InTime");
+                    b.Property<DateTime?>("InTime");
 
-                    b.Property<DateTime>("OutTime");
+                    b.Property<DateTime?>("OutTime");
 
                     b.Property<int>("PositionsTableId");
 

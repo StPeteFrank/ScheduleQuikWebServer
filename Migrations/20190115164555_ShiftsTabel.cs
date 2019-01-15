@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ScheduleQuikWebServer.Migrations
 {
-    public partial class AddedShiftsTable : Migration
+    public partial class ShiftsTabel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +14,8 @@ namespace ScheduleQuikWebServer.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    InTime = table.Column<string>(nullable: true),
-                    OutTime = table.Column<string>(nullable: true),
+                    InTime = table.Column<DateTime>(nullable: true),
+                    OutTime = table.Column<DateTime>(nullable: true),
                     EmployeesTableId = table.Column<int>(nullable: false),
                     PositionsTableId = table.Column<int>(nullable: false)
                 },
