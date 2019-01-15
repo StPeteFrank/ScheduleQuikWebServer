@@ -33,5 +33,22 @@ namespace ScheduleQuikWebServer.Controllers
       return incomingShifts;
     }
 
+    [HttpDelete("{id}")]
+    public ActionResult<Object> DeleteShifts([FromRoute]int id)
+    {
+      var db = new ScheduleQuikDbContext();
+      var shiftsToDelete = db.Shifts.FirstOrDefault(shifts => shifts.Id == id);
+      if (shiftsToDelete != null)
+      {
+        db.Shifts.Remove(shiftsToDelete);
+        db.SaveChanges();
+        return shiftsToDelete;
+      }
+      else
+      {
+        return new { message = "Shift not found" };
+      }
+    }
+
   }
 }
