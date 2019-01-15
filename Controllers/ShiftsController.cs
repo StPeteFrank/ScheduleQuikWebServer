@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ScheduleQuikWebServer.Models;
 
 
@@ -18,8 +19,8 @@ namespace ScheduleQuikWebServer.Controllers
     {
       // query my database
       var db = new ScheduleQuikDbContext();
-      var shift = db.Shifts;
-      // return the results
+      var shift = db.Shifts.Include(i => i.Positions);
+      // includes positions
       return shift.ToList();
     }
 
