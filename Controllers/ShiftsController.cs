@@ -71,5 +71,26 @@ namespace ScheduleQuikWebServer.Controllers
       }
     }
 
+    /////////////////////////// DELETE SCHEDULE BUTTON ////////////////////////
+
+    //   [HttpDelete]
+    //   public ActionResult<Object> DeleteSchedule([FromBody] ShiftsTable scheduleToDelete)
+    //   {
+    //     var db = new ScheduleQuikDbContext();
+    //     var scheduleToDelete = db.Shifts.All(shifts => shifts.Id == id);
+    //     if (scheduleToDelete != null)
+    //     {
+    //       db.Shifts.Remove(scheduleToDelete);
+    //       db.SaveChanges();
+    //       return scheduleToDelete;
+    //     }
+    //     else
+    //     {
+    //       return new { message = "Schedule not found" };
+    //     }
+    //   }
+
+    ///////////////////////////////////////////////////////////////////////////
+
   }
 }
