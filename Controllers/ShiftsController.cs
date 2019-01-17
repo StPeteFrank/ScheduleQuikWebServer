@@ -33,6 +33,27 @@ namespace ScheduleQuikWebServer.Controllers
       return incomingShifts;
     }
 
+    [HttpPut("{id}")]
+    public ActionResult UpdateShifts([FromRoute] int id, [FromBody] ShiftsTable updateInformation)
+    {
+      var db = new ScheduleQuikDbContext();
+      var shifts = db.Shifts.FirstOrDefault(shift => shift.Id == id);
+      if (shifts != null)
+      {
+        shifts.InTime = updateInformation.InTime;
+        shifts.OutTime = updateInformation.OutTime;
+        shifts.EmployeesTableId = updateInformation.EmployeesTableId;
+        shifts.PositionsTableId = updateInformation.PositionsTableId;
+        db.SaveChanges();
+        return Ok(shifts);
+      }
+      else
+      {
+        return NotFound(new { message = "Shift not found" });
+
+      }
+    }
+
     [HttpDelete("{id}")]
     public ActionResult<Object> DeleteShifts([FromRoute]int id)
     {
