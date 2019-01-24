@@ -71,8 +71,6 @@ namespace ScheduleQuikWebServer.Controllers
       }
     }
 
-    /////////////////////////// DELETE SCHEDULE BUTTON //////////////////////// 
-
     [HttpDelete()]
     public ActionResult DeleteSchedule()
     {
@@ -85,8 +83,6 @@ namespace ScheduleQuikWebServer.Controllers
 
       return Ok();
     }
-
-    ///////////////////////////////////////////////////////////////////////////
 
   }
 }

@@ -30,8 +30,7 @@ namespace ScheduleQuikWebServer.Controllers
       db.SaveChanges();
       return incomingEmployees;
     }
-    // DELETE /api/employees/3
-    // localhost:5000/api/employees/{id}
+
     [HttpDelete("{id}")]
     public ActionResult<Object> DeleteEmployees([FromRoute]int id)
     {
@@ -66,7 +65,6 @@ namespace ScheduleQuikWebServer.Controllers
       }
     }
 
-
     [HttpDelete("list")]
     public ActionResult DeleteGroupOfEmployees([FromBody]DeleteEmployeesViewModel vm)
     {
@@ -83,7 +81,6 @@ namespace ScheduleQuikWebServer.Controllers
         return Ok(vm);
       }
     }
-    //////////////////////////////////////////////////////////
 
     [HttpPut("{id}")]
     public ActionResult UpdateEmployees([FromRoute]int id, [FromBody]EmployeesTable newInformation)
@@ -93,23 +90,20 @@ namespace ScheduleQuikWebServer.Controllers
       var employees = db.Employees.FirstOrDefault(f => f.Id == id);
       if (employees != null)
       {
-        //update the information
         employees.FirstName = newInformation.FirstName;
         employees.LastName = newInformation.LastName;
         employees.PhoneNumber = newInformation.PhoneNumber;
         employees.EmailAddress = newInformation.EmailAddress;
 
-        //save changes
         db.SaveChanges();
       }
       else
       {
-        //do something n not found
+
         return NotFound();
       }
       return Ok(employees);
-      //Havent been able to get this to work
-      //Also would like to add a search controller
+
     }
   }
 }
