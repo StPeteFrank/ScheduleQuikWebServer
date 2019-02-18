@@ -30,7 +30,7 @@ namespace ScheduleQuikWebServer.Controllers
       db.SaveChanges();
       return incomingPositions;
     }
-    // localhost:5000/api/employees/{id}
+    // localhost:5000/api/employees/{id} NOT USED
     [HttpDelete("{id}")]
     public ActionResult<Object> PositionsEmployees([FromRoute]int id)
     {
@@ -67,7 +67,7 @@ namespace ScheduleQuikWebServer.Controllers
 
 
 
-
+    //CRUD Below not used.
     [HttpPut("{id}")]
     public ActionResult UpdatePositions([FromRoute]int id, [FromBody]PositionsTable newInformation)
     {
